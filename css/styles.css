@@ -631,6 +631,21 @@ body.dark-mode .toast {
   color: #000;
 }
 
+/* Dark Mode - Sol Menü ve İletişim Bilgileri Renk Düzeltmesi */
+body.dark-mode .foot-contact ul,
+body.dark-mode .left-footer .foot-contact {
+  color: #cccccc !important;
+}
+
+body.dark-mode .left-footer .social-icons ul li a,
+body.dark-mode .left-footer .foot-contact ul li {
+  color: #cccccc !important;
+}
+
+body.dark-mode .left-footer .social-icons ul li a:hover {
+  color: #ffffff !important;
+}
+
 /* Yazdırma / PDF Kaydetme Ayarı */
 @media print {
   .left-content, .theme-btn, .toast {
