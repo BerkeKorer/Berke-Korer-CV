@@ -79,10 +79,18 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     };
-
+// 5. PDF Olarak İndir / Yazdır Butonu
+    const downloadPdfBtn = document.getElementById('download-pdf-btn');
+    if (downloadPdfBtn) {
+        downloadPdfBtn.addEventListener('click', () => {
+            window.print();
+        });
+    }
+    
     // Hem masaüstü (main-content içi) hem mobil (pencere) kaydırmasını dinle
     if (mainContent) {
         mainContent.addEventListener('scroll', handleScroll);
     }
     window.addEventListener('scroll', handleScroll);
 });
+
