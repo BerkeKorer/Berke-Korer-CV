@@ -1,42 +1,59 @@
 document.addEventListener('DOMContentLoaded', () => {
     const themeToggleBtn = document.getElementById('theme-toggle');
-    const themeIcon = themeToggleBtn.querySelector('i');
+    const themeIcon = themeToggleBtn ? themeToggleBtn.querySelector('i') : null;
     const body = document.body;
 
     // 1. Kullanıcının daha önce seçtiği temayı kontrol et
     const savedTheme = localStorage.getItem('cv-theme');
     if (savedTheme === 'dark') {
         body.classList.add('dark-mode');
-        themeIcon.classList.replace('fa-moon-o', 'fa-sun-o');
+        if (themeIcon) {
+            themeIcon.classList.replace('fa-moon-o', 'fa-sun-o');
+        }
     }
 
     // 2. Dark / Light Mode Geçişi
-    themeToggleBtn.addEventListener('click', () => {
-        body.classList.toggle('dark-mode');
-        
-        if (body.classList.contains('dark-mode')) {
-            themeIcon.classList.replace('fa-moon-o', 'fa-sun-o');
-            localStorage.setItem('cv-theme', 'dark');
-        } else {
-            themeIcon.classList.replace('fa-sun-o', 'fa-moon-o');
-            localStorage.setItem('cv-theme', 'light');
-        }
-    });
+    if (themeToggleBtn && themeIcon) {
+        themeToggleBtn.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                themeIcon.classList.replace('fa-moon-o', 'fa-sun-o');
+                localStorage.setItem('cv-theme', 'dark');
+            } else {
+                themeIcon.classList.replace('fa-sun-o', 'fa-moon-o');
+                localStorage.setItem('cv-theme', 'light');
+            }
+        });
+    }
 
-    // 3. E-Posta Adresini Tek Tıkla Panoya Kopyalama
-    const copyEmailBtn = document.getElementById('copy-email');
+    // 3. E-Posta Adresini Tek Tıkla Panoya Kopyalama (Üst ve Alt Alanlar İçin)
     const toast = document.getElementById('toast-msg');
 
-    if (copyEmailBtn) {
-        copyEmailBtn.addEventListener('click', () => {
-            const emailText = copyEmailBtn.querySelector('span').innerText;
+    function copyEmail(element) {
+        if (element) {
+            const emailText = element.querySelector('span').innerText;
             navigator.clipboard.writeText(emailText).then(() => {
-                toast.classList.add('show');
-                setTimeout(() => {
-                    toast.classList.remove('show');
-                }, 2500);
+                if (toast) {
+                    toast.classList.add('show');
+                    setTimeout(() => {
+                        toast.classList.remove('show');
+                    }, 2500);
+                }
             });
-        });
+        }
+    }
+
+    // Üst profil e-posta alanı
+    const copyEmailBtn = document.getElementById('copy-email');
+    if (copyEmailBtn) {
+        copyEmailBtn.addEventListener('click', () => copyEmail(copyEmailBtn));
+    }
+
+    // Alt iletişim e-posta alanı
+    const copyEmailBottomBtn = document.getElementById('copy-email-bottom');
+    if (copyEmailBottomBtn) {
+        copyEmailBottomBtn.addEventListener('click', () => copyEmail(copyEmailBottomBtn));
     }
 
     // 4. Sayfa Kaydırıldıkça Sol Menüdeki Aktif Sekmeyi Vurgulama (Scroll Spy)
@@ -46,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const handleScroll = () => {
         let currentSection = '';
-        const scrollPosition = window.innerWidth <= 768 ? window.scrollY : mainContent.scrollTop;
+        const scrollPosition = window.innerWidth <= 768 ? window.scrollY : (mainContent ? mainContent.scrollTop : 0);
 
         sections.forEach(section => {
             const sectionTop = section.offsetTop - 100;
@@ -64,6 +81,8 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Hem masaüstü (main-content içi) hem mobil (pencere) kaydırmasını dinle
-    mainContent.addEventListener('scroll', handleScroll);
+    if (mainContent) {
+        mainContent.addEventListener('scroll', handleScroll);
+    }
     window.addEventListener('scroll', handleScroll);
 });
