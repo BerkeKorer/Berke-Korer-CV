@@ -204,6 +204,53 @@ Sidebar / Left Content
   display: flex;
   justify-content: flex-end;
 }
+/* PDF İndir Butonu Stilleri */
+.pdf-btn {
+  width: 100%;
+  background: #f4f4f4;
+  border: 1px solid #ddd;
+  color: #222;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.pdf-btn i {
+  color: #e74c3c; /* PDF simgesi için şık bir kırmızı tonu */
+  font-size: 15px;
+}
+
+.pdf-btn:hover {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+.pdf-btn:hover i {
+  color: #fff;
+}
+
+/* Dark Mode PDF Butonu Uyumu */
+body.dark-mode .pdf-btn {
+  background: #252525;
+  border-color: #383838;
+  color: #e0e0e0;
+}
+
+body.dark-mode .pdf-btn:hover {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+}
 
 .social-icons ul li {
   display: flex;
