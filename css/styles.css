@@ -106,15 +106,17 @@ Page Layout
 
 /* Sol Menünün Ekranda Sabit Kalması (Sticky / Fixed Etkisi) */
 .left-content {
-  width: 300px;
-  height: 100%;
-  background: #fff;
-  border-right: 1px solid rgba(221, 221, 221, 0.6);
-  display: flex;
-  flex-direction: column;
-  position: sticky;
-  top: 0;
-}
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid #eee;
+    padding: 20px;
+    background: #fff; /* Mobilde yazılar arkasından görünmesin diye arka plan beyaz yapıldı */
+    position: sticky;  /* Mobilde de en üstte çivi gibi sabit kalması için */
+    top: 0;
+    z-index: 1000;     /* Yazıların her zaman üzerinde kalmasını sağlar */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Altına hafif bir gölge ekledik */
+  }
 
 /* Sağ Tarafın Kaydırılabilir Alanı */
 .main-content {
