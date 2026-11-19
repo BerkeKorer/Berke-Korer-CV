@@ -648,6 +648,7 @@ body.dark-mode .pr-list ul li i {
   color: #cccccc;
 }
 
+
 body.dark-mode .section-block {
   border-bottom-color: #2c2c2c;
 }
@@ -689,9 +690,10 @@ body.dark-mode .left-footer .foot-contact {
 }
 
 body.dark-mode .left-footer .social-icons ul li a,
-body.dark-mode .left-footer .foot-contact ul li {
+body.dark-mode .left-footer .foot-contact ul li, body.dark-mode .social-icons-head ul li a:hover {
   color: #cccccc !important;
 }
+
 
 body.dark-mode .left-footer .social-icons ul li a:hover {
   color: #ffffff !important;
