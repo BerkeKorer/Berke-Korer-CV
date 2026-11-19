@@ -308,9 +308,18 @@ Main Content & Sections
   margin-bottom: 20px;
 }
 
+.user-img {
+  flex: 0 0 260px; /* Masaüstünde sabit genişlik alanı */
+  max-width: 260px;
+}
+
 .user-img img {
+  display: block;
+  width: 100%;
+  height: auto; /* En-boy oranını korur, ters esnemeyi önler */
+  max-width: 100%;
   border-radius: 4px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
 .user-profile {
