@@ -144,11 +144,17 @@ Sidebar / Left Content
   padding: 12px 15px;
   font-size: 20px;
   text-transform: uppercase;
-  letter-spacing: 5px;
   line-height: 30px;
   font-weight: 500;
 }
 
+.logo a span:first-child {
+  letter-spacing: 6.2px; /* BERKE satırı */
+}
+
+.logo a span:last-child {
+  letter-spacing: 5px;   /* KORER satırı */
+}
 .nav {
   flex: 1;
   justify-content: flex-end;
