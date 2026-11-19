@@ -252,6 +252,10 @@ body.dark-mode .pdf-btn:hover {
   border-color: #fff;
 }
 
+body.dark-mode .pdf-btn:hover i {
+  color: #000;
+}
+
 .social-icons ul li {
   display: flex;
   justify-content: flex-end;
