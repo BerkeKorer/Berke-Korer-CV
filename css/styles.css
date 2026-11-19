@@ -309,8 +309,8 @@ Main Content & Sections
 }
 
 .user-img {
-  flex: 0 0 260px; /* Masaüstünde sabit genişlik alanı */
-  max-width: 260px;
+  flex: 0 0 360px; /* Masaüstünde sabit genişlik alanı */
+  max-width: 360px;
 }
 
 .user-img img {
