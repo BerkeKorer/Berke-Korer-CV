@@ -714,3 +714,16 @@ body.dark-mode .left-footer .social-icons ul li a:hover {
     background: #fff;
   }
 }
+
+/* Ana içerik alanının mobilde navbar'ın altında kalmasını önlemek için üst boşluk */
+  .main-content {
+    padding-top: 15px;
+  }
+
+  /* Her bir bölümün (section) katman sırasını düzenliyoruz ki yazı navbar'ın üzerine çıkmasın */
+  .section-block {
+    position: relative;
+    z-index: 1;
+    background: inherit; /* Tema rengini korur */
+  }
+}
